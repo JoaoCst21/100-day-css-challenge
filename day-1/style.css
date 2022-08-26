@@ -1,0 +1,132 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: inherit;
+}
+
+.frame {
+	border: red, solid 3px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -200px;
+	border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	background: #fff;
+	color: #333;
+	font-family: "Open Sans", Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.frame {
+	background-image: linear-gradient(to top right, #39387a, #37898c);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.center {
+	// border: 1px solid black;
+	display: flex;
+	width: 60%;
+	height: 60%;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.sub-letters {
+	// border: black solid 3px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.sub-letters p {
+	text-transform: uppercase;
+	margin: 0;
+	line-height: 0.8em;
+	height: 0.8em;
+	color: white;
+	font-family: "Bree Serif", serif;
+}
+.sub-letters p:nth-child(1) {
+	font-size: 90px;
+	height: 70px;
+	line-height: 60px;
+}
+
+.sub-letters p:nth-child(2) {
+	font-size: 27px;
+}
+
+.zero-1,
+.zero-2 {
+	width: 6.5rem;
+	height: 100%;
+	border: 25px solid #323535;
+	border-radius: 50%;
+	position: absolute;
+	box-shadow: 0px 0px 5px 0.5px rgba(0, 0, 0, 0.3);
+}
+
+.zero-2 {
+	right: 1%;
+}
+
+.zero-1 {
+	z-index: 10;
+	right: 40%;
+}
+
+.one {
+	width: 13%;
+	height: 100%;
+	// border: black solid 1px;
+	position: relative;
+	left: 5%;
+	z-index: 20;
+}
+
+.one-figure-1 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #191a1b;
+	z-index: 1;
+}
+
+.one-figure-2 {
+	position: absolute;
+	width: 100%;
+	height: 40%;
+	background-color: #fff;
+	transform: rotate(45deg);
+	top: 3%;
+	right: 50%;
+}
+
+.one-figure-1,
+.one-figure-2 {
+	border-radius: 8%;
+	box-shadow: 0px 0px 3px 0.1px;
+	background-color: #191a1b;
+}
+
+.letters {
+	// border: 2px solid black;
+	width: 100%;
+	height: 45%;
+	display: flex;
+	position: relative;
+}
