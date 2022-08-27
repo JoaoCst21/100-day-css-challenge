@@ -1,0 +1,64 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.frame {
+  --square: 400px;
+  width: var(--square);
+  height: var(--square);
+  background-color: #3C8B68;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+}
+
+button {
+  display: flex;
+  border: none;
+  background-color: transparent;
+  width: 25%;
+  height: 20%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.button-lines {
+  background-color: black;
+  width: 80%;
+  height: 10%;
+  border-radius: 3px;
+  position: relative;
+  transition: transform .2s linear;
+}
+
+.transition-line-1 {
+  transform: translateY(270%);
+}
+
+.transition-line-2-1 {
+  transform: translateY(270%) rotate(135deg);
+}
+
+
+.transition-line-2 {
+  transform: scale(0);
+}
+
+.transition-line-3 {
+  transform: translateY(-270%);
+}
+
+.transition-line-2-3 {
+  transform: translateY(-270%) rotate(45deg);
+}
+
