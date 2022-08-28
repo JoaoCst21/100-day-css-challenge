@@ -1,0 +1,192 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.frame {
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+
+  background-color: #212429;
+  border-radius: 4px;
+}
+
+.figure-container {
+  position: relative;
+  z-index: 1;
+
+  width: 50%;
+  height: 50%;
+
+  border-radius: 50%;
+  background-color: #7DDFFC;
+
+  overflow: hidden;
+  animation: turn-black 5s infinite;
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  height: calc(100% / 3);
+  background-color: #F0DE75;
+}
+
+.pyramid-container {
+  --width: 55%;
+
+  position: absolute;
+  bottom: calc(100% / 3);
+  left: calc((100% - var(--width)) / 2);
+  z-index: 1;
+
+  display: flex;
+  align-items: end;
+  width: var(--width);
+  height: 40%;
+}
+
+.pyramid-figure {
+  position: relative;
+
+  border-left: 50px solid transparent;
+  border-bottom: 60px solid #F4F4F4;
+  border-right: 20px solid transparent;
+
+  animation: shadow-pyramid 5s infinite;
+}
+
+.pyramid-figure:after {
+  content: "";
+  position: absolute;
+  left: 9px;
+
+  border-left: solid transparent 0;
+  border-right: solid transparent 40px;
+  border-bottom: solid #F4F4F4 60px;
+
+  animation: shadow-pyramid 5s infinite reverse;
+  transform: skew(18deg);
+}
+
+.pyramid-shadow {
+  --shadow-percentage: 60%;
+  --space: calc(calc(100% - var(--shadow-percentage)) / 2);
+  --width: calc(108px + 70%);
+  --left: calc(calc(100% - var(--width)) / 2);
+
+  position: absolute;
+  left: var(--left);
+  top: 100%;
+
+  width: var(--width);
+  height: var(--width);
+
+  background-color: black;
+  clip-path: polygon(calc(108px + var(--space)) 0, var(--space) 0, 100% 50%);
+
+  opacity: 0.2;
+  animation: shadow 5s infinite cubic-bezier(.54, .78, .6, .16);
+}
+
+.sun {
+  --width: 35px;
+
+  position: absolute;
+  top: 5%;
+  left: calc((100% - var(--width)) / 2);
+
+  width: var(--width);
+  height: var(--width);
+
+  background-color: yellow;
+  border-radius: 50%;
+
+  transform-origin: 50% 450%;
+  animation: sunRise 5s cubic-bezier(.54, .78, .6, .16) infinite;
+}
+
+@keyframes sunRise {
+  0% {
+    transform: rotate(-70deg);
+  }
+
+  80% {
+    transform: rotate(70deg);
+  }
+
+  100% {
+    transform: rotate(70deg);
+  }
+
+}
+
+@keyframes turn-black {
+  0% {
+    filter: opacity(0%);
+  }
+
+  15% {
+    filter: opacity(100%);
+  }
+
+  65% {
+    filter: opacity(100%);
+  }
+
+  80% {
+    filter: opacity(0%);
+  }
+
+  100% {
+    filter: opacity(0%);
+  }
+}
+
+@keyframes shadow {
+  0% {
+    clip-path: polygon(calc(108px + var(--space)) 0, var(--space) 0, 150% 10%);
+
+  }
+
+  20% {
+    clip-path: polygon(calc(108px + var(--space)) 0, var(--space) 0, 100% 10%);
+
+  }
+
+  65% {
+    clip-path: polygon(calc(108px + var(--space)) 0, var(--space) 0, 30% 10%);
+
+  }
+
+  100% {
+    clip-path: polygon(calc(108px + var(--space)) 0, var(--space) 0, -100% 0%);
+
+  }
+}
+
+@keyframes shadow-pyramid {
+  100% {
+    border-bottom-color: rgba(199, 199, 199);
+  }
+}
