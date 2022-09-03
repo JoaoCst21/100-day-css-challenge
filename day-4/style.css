@@ -1,0 +1,54 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.frame {
+  --width: 400px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--width);
+  height: var(--width);
+
+  border-radius: 3px;
+  background-color: red;
+
+  animation: pulse 5s infinite;
+}
+
+.circle {
+  --width: 30%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--width);
+  height: var(--width);
+
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, .05);
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.75);
+
+  transform: scale(0);
+
+  /*animation: pulse 3s infinite alternate;*/
+}
+
+@keyframes pulse {
+
+}
