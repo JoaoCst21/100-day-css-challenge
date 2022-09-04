@@ -1,0 +1,316 @@
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: white;
+}
+
+.frame {
+  --width: 400px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--width);
+  height: var(--width);
+
+  background-color: #3F867E;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 50%;
+
+  background-color: #191A1B;
+}
+
+.header {
+  height: 30%;
+
+  background-color: #DBA315;
+}
+
+.data {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 95%;
+  height: 70%;
+  gap: 1px;
+
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.data > * {
+  flex: 1 0 0;
+  gap: 4px;
+  margin-block: 0;
+  padding: 0;
+
+  background-color: #191A1B;
+
+}
+
+.days {
+  display: flex;
+  align-items: center;
+}
+
+.days-list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-block: 0;
+  padding-inline: 0;
+
+  text-transform: uppercase;
+  font-size: .70rem;
+  list-style: none;
+}
+
+.elements {
+  display: flex;
+  justify-content: end;
+}
+
+.elements-list {
+  display: flex;
+  font-size: .5rem;
+  list-style: none;
+}
+
+.elements-list li {
+  margin-inline: .8rem;
+  position: relative;
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
+}
+
+.elements-list li:before {
+  content: "";
+  position: absolute;
+  left: -15px;
+
+  width: 7px;
+  height: 2px;
+}
+
+.elements-list li:nth-child(1):before {
+  background-color: red;
+}
+
+.elements-list li:nth-child(2):before {
+  background-color: blue;
+}
+
+.graph-1, .graph-2 {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+.graph-1 {
+  z-index: 99;
+}
+
+.point {
+  --width: 3px;
+  position: absolute;
+
+  width: var(--width);
+  height: var(--width);
+
+  cursor: pointer;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+
+.graph-1 .point {
+  border-color: red;
+}
+
+.graph-2 .point {
+  border-color: blue;
+}
+
+.point-1 {
+  left: 4%;
+}
+
+.point-2 {
+  left: 20%;
+}
+
+.point-3 {
+  left: 35%;
+}
+
+.point-4 {
+  left: 50%;
+}
+
+.point-5 {
+  left: 63%;
+}
+
+.point-6 {
+  left: 80%;
+}
+
+.point-7 {
+  left: 94%;
+}
+
+.graph-1 .point-1 {
+  top: 100%;
+}
+
+.graph-1 .point-2 {
+  top: 25%;
+}
+
+.graph-1 .point-3 {
+  top: 50%;
+}
+
+.graph-1 .point-4 {
+  top: 25%;
+}
+
+.graph-1 .point-5 {
+  top: 90%;
+}
+
+.graph-1 .point-6 {
+  top: 100%;
+}
+
+.graph-1 .point-7 {
+  top: 30%;
+}
+
+
+.graph-2 .point-1 {
+  top: 30%;
+}
+
+.graph-2 .point-2 {
+  top: 20%;
+}
+
+.graph-2 .point-3 {
+  top: 45%;
+}
+
+.graph-2 .point-4 {
+  top: 30%;
+}
+
+.graph-2 .point-5 {
+  top: 40%;
+}
+
+.graph-2 .point-6 {
+  top: 60%;
+}
+
+.graph-2 .point-7 {
+  top: 40%;
+}
+
+.header {
+  font-size: .9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header > * {
+  margin: 10px;
+  /*border: 1px solid black;*/
+}
+
+.header-1 header, .header-2 .money {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.header-1 span, .header-2 .title {
+  font-size: .8rem;
+}
+
+.header-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.graph-1 svg {
+  position: absolute;
+  top: 30%;
+
+  width: 100%;
+}
+
+.graph-2 svg {
+  position: absolute;
+  top: 25%;
+
+  width: 100%;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: -1;
+
+  padding: 5px;
+
+  color: white;
+  opacity: 0;
+  transform: translate(0, 50%);
+  text-align: center;
+  font-size: .5rem;
+
+  transition: opacity .5s linear, transform .5s linear;
+}
+
+.graph-1 .tooltip {
+  background-color: #FA7373;
+}
+
+.graph-2 .tooltip {
+  background-color: #7BA2FF;
+}
+
+.tooltip:after {
+  content: "";
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  clip-path: polygon(75% 0, 29% 0, 51% 34%);
+  background-color: inherit;
+}
