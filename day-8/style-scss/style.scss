@@ -1,0 +1,91 @@
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+
+@mixin square($width) {
+  width: $width;
+  height: $width;
+}
+
+.frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include square(400px);
+
+  border-radius: 3px;
+  background-color: black;
+  filter: contrast(25);
+}
+
+
+.ball {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include square(90px);
+
+  background-color: white;
+  border-radius: 50%;
+  filter: blur(15px);
+}
+
+@for $i from 1 through 8 {
+  .bubble-#{$i} {
+    position: absolute;
+    @include square(50px);
+    background: white;
+    border-radius: 50%;
+    transform-origin: (40 - $i * 3) + px (40 - $i * 3) + px;
+    animation: rotate (2.5 + $i / 5) + s ease-in-out ($i / 5) + s infinite;
+    filter: blur(5px);
+  }
+}
+
+@for $i from 1 through 10 {
+  .sparkle-#{$i} {
+    position: absolute;
+    rotate: random(300) + deg;
+
+    &:after {
+      content: "";
+      position: absolute;
+      @include square((7 + $i) + px);
+
+      border-radius: 50%;
+      background-color: white;
+      filter: blur(2px);
+
+      //transform-origin: 60px;
+      transform-origin: (60 - $i * 2) + px (60 - $i * 2) + px;
+      animation: rotate (3.5 + $i / 5) + s infinite;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
