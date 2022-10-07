@@ -1,0 +1,230 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+@mixin square($width) {
+  width: $width;
+  height: $width;
+}
+
+$frontCloudColor: rgb(48, 60, 93);
+$backCloudColor: rgb(38, 49, 79);
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.frame {
+  position: relative;
+
+  @include square(400px);
+
+  background-color: rgb(26, 34, 56);
+  box-shadow: .1rem .1rem 1rem .1rem rgba(0, 0, 0, .5);
+  overflow: hidden;
+
+  animation: thunder 5s infinite;
+}
+
+.moon {
+  position: absolute;
+  left: 15%;
+  top: 15%;
+
+  @include square(60px);
+
+  background-color: #fffff1;
+  border-radius: 50%;
+  box-shadow: 0 0 1rem .2rem navajowhite;
+  overflow: hidden;
+
+  animation: rise 2s;
+}
+
+@for $i from 1 through 8 {
+  .crater-#{$i} {
+    position: absolute;
+    top: (((random(80) - $i * 1.7) + 15%));
+    left: (((random(70) - $i * 1.7) + 15%));
+
+    @include square((random(7) + 5) + px);
+
+    background-color: rgb(236, 225, 168);
+    border-radius: 50%;
+  }
+}
+
+@mixin makeCloud($size, $color, $left, $bottom) {
+  position: absolute;
+  bottom: $bottom;
+  left: $left;
+
+  width: $size * 1.5;
+  height: $size;
+
+  background-color: $color;
+  border-radius: 50%;
+}
+
+.cloud-1 {
+  @include makeCloud(40%, $frontCloudColor, -20%, 0)
+}
+
+.cloud-2 {
+  @include makeCloud(50%, $frontCloudColor, 10%, -2%)
+}
+
+.cloud-3 {
+  @include makeCloud(40%, $frontCloudColor, 70%, 0%)
+}
+
+.cloud-1, .cloud-2, .cloud-3 {
+  z-index: 10;
+}
+
+.cloud-4 {
+  @include makeCloud(40%, $backCloudColor, -10%, 12%)
+}
+
+.cloud-5 {
+  @include makeCloud(40%, $backCloudColor, 40%, 14%)
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+
+  background-color: #fff;
+  border-radius: 3px;
+  z-index: 20;
+
+  color: #394568;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: lighter;
+
+  .temperature {
+    flex: 1 1 20%;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+  }
+
+  .temperature__information {
+    flex: 3 1 40%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .weather-prediction {
+    flex: 2 1 30%;
+    display: flex;
+    flex-wrap: wrap;
+
+    & > * {
+      flex: 1 1 100%;
+      display: flex;
+      justify-content: space-evenly;
+
+      & :nth-child(2) {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@mixin makeDrop($size, $durationMin) {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+
+  width: $size;
+  height: auto;
+
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+
+  animation: rain ($durationMin + random(2) / 10) + s linear (random(50) / 25) + s infinite;
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@for $i from 1 through 10 {
+  .drop-#{$i} {
+    @include makeDrop(3%, 0.7);
+    left: -15% + ($i * 8.3%);
+  }
+}
+
+@for $i from 11 through 20 {
+  .drop-#{$i} {
+    @include makeDrop(2.2%, 1.3);
+    left: (-12% + (($i - 8) * 7%));
+  }
+}
+
+@for $i from 21 through 30 {
+  .drop-#{$i} {
+    @include makeDrop(1.8%, 1.9);
+    left: (-15% + (($i - 20) * 11%));
+  }
+}
+
+@keyframes rain {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, -350px, 0);
+    rotate: 17deg;
+    scale: 1 1;
+  }
+
+  85% {
+    transform: translate3d(0, 0, 0);
+    rotate: 17deg;
+    scale: 1 1;
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: translate3d(0, 0, 0);
+    rotate: 0deg;
+    scale: 3 0;
+  }
+}
+
+@keyframes rise {
+  0% {
+    transform: translate(-100%, 300%);
+  }
+
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes thunder {
+
+
+  99% {
+    filter: none;
+  }
+
+  100% {
+    filter: brightness(100);
+  }
+}

@@ -1,0 +1,757 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.frame {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background-color: rgb(26, 34, 56);
+  box-shadow: 0.1rem 0.1rem 1rem 0.1rem rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: thunder 5s infinite;
+}
+
+.moon {
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  width: 60px;
+  height: 60px;
+  background-color: #fffff1;
+  border-radius: 50%;
+  box-shadow: 0 0 1rem 0.2rem navajowhite;
+  overflow: hidden;
+  animation: rise 2s;
+}
+
+.crater-1 {
+  position: absolute;
+  top: 37.3%;
+  left: 78.3%;
+  width: 8px;
+  height: 8px;
+  background-color: rgb(236, 225, 168);
+  border-radius: 50%;
+}
+
+.crater-2 {
+  position: absolute;
+  top: 19.6%;
+  left: 19.6%;
+  width: 6px;
+  height: 6px;
+  background-color: rgb(236, 225, 168);
+  border-radius: 50%;
+}
+
+.crater-3 {
+  position: absolute;
+  top: 14.9%;
+  left: 67.9%;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(236, 225, 168);
+  border-radius: 50%;
+}
+
+.crater-4 {
+  position: absolute;
+  top: 44.2%;
+  left: 26.2%;
+  width: 9px;
+  height: 9px;
+  background-color: rgb(236, 225, 168);
+  border-radius: 50%;
+}
+
+.crater-5 {
+  position: absolute;
+  top: 15.5%;
+  left: 28.5%;
+  width: 8px;
+  height: 8px;
+  background-color: rgb(236, 225, 168);
+  border-radius: 50%;
+}
+
+.crater-6 {
+  position: absolute;
+  top: 72.8%;
+  left: 35.8%;
+  width: 9px;
+  height: 9px;
+  background-color: rgb(236, 225, 168);
+  border-radius: 50%;
+}
+
+.crater-7 {
+  position: absolute;
+  top: 42.1%;
+  left: 42.1%;
+  width: 12px;
+  height: 12px;
+  background-color: rgb(236, 225, 168);
+  border-radius: 50%;
+}
+
+.crater-8 {
+  position: absolute;
+  top: 41.4%;
+  left: 22.4%;
+  width: 9px;
+  height: 9px;
+  background-color: rgb(236, 225, 168);
+  border-radius: 50%;
+}
+
+.cloud-1 {
+  position: absolute;
+  bottom: 0;
+  left: -20%;
+  width: 60%;
+  height: 40%;
+  background-color: rgb(48, 60, 93);
+  border-radius: 50%;
+}
+
+.cloud-2 {
+  position: absolute;
+  bottom: -2%;
+  left: 10%;
+  width: 75%;
+  height: 50%;
+  background-color: rgb(48, 60, 93);
+  border-radius: 50%;
+}
+
+.cloud-3 {
+  position: absolute;
+  bottom: 0%;
+  left: 70%;
+  width: 60%;
+  height: 40%;
+  background-color: rgb(48, 60, 93);
+  border-radius: 50%;
+}
+
+.cloud-1, .cloud-2, .cloud-3 {
+  z-index: 10;
+}
+
+.cloud-4 {
+  position: absolute;
+  bottom: 12%;
+  left: -10%;
+  width: 60%;
+  height: 40%;
+  background-color: rgb(38, 49, 79);
+  border-radius: 50%;
+}
+
+.cloud-5 {
+  position: absolute;
+  bottom: 14%;
+  left: 40%;
+  width: 60%;
+  height: 40%;
+  background-color: rgb(38, 49, 79);
+  border-radius: 50%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+  background-color: #fff;
+  border-radius: 3px;
+  z-index: 20;
+  color: #394568;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: lighter;
+}
+.footer .temperature {
+  flex: 1 1 20%;
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+}
+.footer .temperature__information {
+  flex: 3 1 40%;
+  display: flex;
+  flex-direction: column;
+}
+.footer .weather-prediction {
+  flex: 2 1 30%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer .weather-prediction > * {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.footer .weather-prediction > * :nth-child(2) {
+  font-weight: bold;
+}
+
+.drop-1 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 3%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 0.8s linear 1.72s infinite;
+  left: -6.7%;
+}
+.drop-1 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-2 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 3%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 0.8s linear 0.32s infinite;
+  left: 1.6%;
+}
+.drop-2 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-3 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 3%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 0.9s linear 0.72s infinite;
+  left: 9.9%;
+}
+.drop-3 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-4 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 3%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 0.8s linear 0.84s infinite;
+  left: 18.2%;
+}
+.drop-4 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-5 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 3%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 0.9s linear 1.2s infinite;
+  left: 26.5%;
+}
+.drop-5 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-6 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 3%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 0.8s linear 2s infinite;
+  left: 34.8%;
+}
+.drop-6 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-7 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 3%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 0.8s linear 0.04s infinite;
+  left: 43.1%;
+}
+.drop-7 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-8 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 3%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 0.9s linear 2s infinite;
+  left: 51.4%;
+}
+.drop-8 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-9 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 3%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 0.8s linear 1.04s infinite;
+  left: 59.7%;
+}
+.drop-9 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-10 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 3%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 0.9s linear 1.84s infinite;
+  left: 68%;
+}
+.drop-10 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-11 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 2.2%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 1.5s linear 1.64s infinite;
+  left: 9%;
+}
+.drop-11 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-12 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 2.2%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 1.5s linear 1.16s infinite;
+  left: 16%;
+}
+.drop-12 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-13 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 2.2%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 1.4s linear 1.16s infinite;
+  left: 23%;
+}
+.drop-13 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-14 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 2.2%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 1.4s linear 0.68s infinite;
+  left: 30%;
+}
+.drop-14 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-15 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 2.2%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 1.4s linear 0.08s infinite;
+  left: 37%;
+}
+.drop-15 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-16 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 2.2%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 1.5s linear 0.84s infinite;
+  left: 44%;
+}
+.drop-16 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-17 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 2.2%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 1.5s linear 1.4s infinite;
+  left: 51%;
+}
+.drop-17 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-18 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 2.2%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 1.5s linear 1.72s infinite;
+  left: 58%;
+}
+.drop-18 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-19 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 2.2%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 1.5s linear 1s infinite;
+  left: 65%;
+}
+.drop-19 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-20 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 2.2%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 1.5s linear 1.08s infinite;
+  left: 72%;
+}
+.drop-20 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-21 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 1.8%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 2.1s linear 0.08s infinite;
+  left: -4%;
+}
+.drop-21 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-22 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 1.8%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 2s linear 0.36s infinite;
+  left: 7%;
+}
+.drop-22 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-23 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 1.8%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 2s linear 0.72s infinite;
+  left: 18%;
+}
+.drop-23 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-24 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 1.8%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 2s linear 0.36s infinite;
+  left: 29%;
+}
+.drop-24 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-25 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 1.8%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 2s linear 0.64s infinite;
+  left: 40%;
+}
+.drop-25 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-26 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 1.8%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 2.1s linear 1.88s infinite;
+  left: 51%;
+}
+.drop-26 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-27 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 1.8%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 2s linear 1.08s infinite;
+  left: 62%;
+}
+.drop-27 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-28 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 1.8%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 2.1s linear 0.48s infinite;
+  left: 73%;
+}
+.drop-28 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-29 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 1.8%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 2s linear 1.36s infinite;
+  left: 84%;
+}
+.drop-29 svg {
+  width: 100%;
+  height: auto;
+}
+
+.drop-30 {
+  position: absolute;
+  z-index: 20;
+  bottom: 20%;
+  width: 1.8%;
+  height: auto;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation-fill-mode: both;
+  animation: rain 2.1s linear 0.68s infinite;
+  left: 95%;
+}
+.drop-30 svg {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes rain {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, -350px, 0);
+    rotate: 17deg;
+    scale: 1 1;
+  }
+  85% {
+    transform: translate3d(0, 0, 0);
+    rotate: 17deg;
+    scale: 1 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    rotate: 0deg;
+    scale: 3 0;
+  }
+}
+@keyframes rise {
+  0% {
+    transform: translate(-100%, 300%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+@keyframes thunder {
+  99% {
+    filter: none;
+  }
+  100% {
+    filter: brightness(100);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
