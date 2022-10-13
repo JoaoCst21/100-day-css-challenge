@@ -1,0 +1,94 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame {
+  --square: 400px;
+
+  position: relative;
+
+  /*display: flex;*/
+  width: var(--square);
+  height: var(--square);
+  border: black solid 1px;
+  background-color: rgb(227, 204, 175);
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  height: 40%;
+  background-color: rgb(35, 35, 35);
+  border: solid black 1px;
+}
+
+.shoe {
+  position: absolute;
+  left: 10%;
+  transform-origin: 30px -200px;
+  animation: invisibleLeg 2s infinite ease-in-out;
+}
+
+.shoe-2 {
+  animation: invisibleLeg 2s 1s infinite ease-in-out;
+}
+
+.shoe img {
+  translate: 0 30px;
+  rotate: 15deg;
+}
+
+.shoe-1 img {
+  animation: walk 2s infinite linear;
+}
+
+.shoe-2 img {
+  animation: walk 2s 1s infinite linear;
+}
+
+@keyframes invisibleLeg {
+  0% {
+    translate: 0 75px;
+
+  }
+
+  20% {
+    translate: 0 55px;
+  }
+
+  40% {
+    translate: 0 70px;
+    rotate: -25deg;
+  }
+
+  75% {
+    translate: 0 85px;
+  }
+
+  100% {
+    translate: 0 75px;
+  }
+}
+
+@keyframes walk {
+  50% {
+    translate: 50px 50px;
+    rotate: 0deg;
+  }
+
+  85% {
+    rotate: 8deg;
+  }
+}
